@@ -1,0 +1,47 @@
+<!-- @for (item of items; track item.id) {
+    <li >{{ item.title}}</li> -->
+    <!-- <button [routerLink]="['/items',item.id]">View</button> -->
+    <!-- <app-item-detail [item]="item"></app-item-detail>
+    
+    }
+     @empty {
+    <li>There are no items.</li>
+    } -->
+
+
+
+   
+    @if(currentPage >=1 && currentPage<=10)
+    {
+    @for (item of items; track item.id)
+    {
+          <li>{{ item.title }}</li>
+            <app-item-detail [item]="item"></app-item-detail>
+    }
+}
+@else {
+    <h1>NO CONTENT HERE</h1>
+}
+<br>
+@if(currentPage>=1)
+{
+<button (click)="decrementPage()"> < PrevPage</button>
+}
+
+   @if(currentPage <=10)
+   {
+    <button (click)="incrementPage()">NextPage ></button>
+   }
+    
+   
+          
+        
+        
+      
+      
+      <ng-template #noItems>
+        <p>There are no items.</p>
+      </ng-template>
+      
+
+    
